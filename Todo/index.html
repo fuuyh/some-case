@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <script src="js/vue.min.js"></script>
+  <title>ToDo</title>
+</head>
+
+<body>
+  <div id="app">
+    <main class="container">
+      <!-- 头部区域 -->
+      <header>
+        <div class="img-wrapper">
+          <img src="images/note.svg" alt="Note">
+        </div>
+        <div class="title">To-Do List</div>
+      </header>
+      <!-- 输入框区域 -->
+      <div class="form-field">
+        <h1 class="title">~ Today I need to ~</h1>
+        <div class="form-wrapper">
+          <div class="form-input">
+            <input type="text" placeholder="Add new todo..." autofocus v-model="contents">
+          </div>
+          <button type="submit" class="submit-sub" @click="addTodo()">
+            <span>Submit</span>
+          </button>
+        </div>
+      </div>
+      <!-- 列表区域 -->
+      <ul class="todos">
+        <li :class="{completed:todo.completed}" v-for="todo in filteredTodo" :key="todo.id">
+          <button class="checkbox-btn" @click="todo.completed = !todo.completed">
+            <img src="images/xuanzhong.svg" alt="xuanze" width="16" v-if="todo.completed">
+            <img src="images/xuanze.svg" alt="xuanze" width="16" v-else>
+          </button>
+          <p :class="{contentActive:todo.completed}">{{ todo.title }}</p>
+          <button class="close-btn" @click="deleteTodo(todo)">
+            <img src="images/close-active.svg" alt="close" width="14" v-if="todo.completed">
+            <img src="images/close.svg" alt="close" width="14" v-else>
+          </button>
+        </li>
+        <!-- <li class="todos-item">
+          <button class="checkbox-btn">
+            <img src="images/xuanze.svg" alt="xuanze" width="16">
+          </button>
+          <p class="content">示例内容</p>
+          <button class="close-btn">
+            <img src="images/close.svg" alt="close" width="14">
+          </button>
+        </li> -->
+      </ul>
+      <!-- 底部区域 -->
+      <footer class="options" v-show="todos.length">
+        <span>{{ remaining }} {{ pluralize() }} left</span>
+        <div class="filters" >
+          <span :class="{active: todoType==='all'}" @click="todoType = 'all'">All</span>
+          <span :class="{active: todoType==='active'}" @click="todoType = 'active'">Active</span>
+          <span :class="{active: todoType==='completed'}" @click="todoType = 'completed'">Completed</span>
+        </div>
+      </footer>
+      <div class="empty-todos" v-show="!todos.length">
+        <svg class="svg-inline--fa fa-clipboard-check fa-w-12 icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clipboard-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" >
+          <path class="" fill="currentColor" d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm121.2 231.8l-143 141.8c-4.7 4.7-12.3 4.6-17-.1l-82.6-83.3c-4.7-4.7-4.6-12.3.1-17L99.1 285c4.7-4.7 12.3-4.6 17 .1l46 46.4 106-105.2c4.7-4.7 12.3-4.6 17 .1l28.2 28.4c4.7 4.8 4.6 12.3-.1 17z">
+          </path>
+        </svg>
+        <span class="msg" >Congrat, you have no more tasks to do</span>
+      </div>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

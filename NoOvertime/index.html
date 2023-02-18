@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>NoOvertime</title>
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+
+	<div class="card" id="card">
+		<div class="img">
+			<svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+				<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+					<circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5" />
+					<circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5" />
+					<circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5" />
+				</g>
+			</svg>
+		</div>
+		<!-- 正面卡片 -->
+		<div class="front">
+			<button id="btn">点击签到</button>
+		</div>
+		<!-- 背面卡片 -->
+		<div class="back" id="bmCard">
+			<div class="img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
+					<g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+						<circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5" />
+						<circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5" />
+						<circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5" />
+					</g>
+				</svg>
+			</div>
+			<div>
+				<h2>签到时间:</h2>
+				<p id="dksj" style="color: brown;"></p>
+			</div>
+			<div id="xbl">
+				<!-- 时 -->
+				<h2>下班倒计时</h2>
+				<div class="time">
+					<!-- 默认是 00  -->
+					<h3 id="hours">00</h3>
+					<small>hours</small>
+				</div>
+				<!-- 分 -->
+				<div class="time">
+					<!-- 默认是 00  -->
+					<h3 id="minutes">00</h3>
+					<small>minutes</small>
+				</div>
+				<!-- 秒 -->
+				<div class="time">
+					<!-- 默认是 00  -->
+					<h3 id="seconds">00</h3>
+					<small>seconds</small>
+				</div>
+			</div>
+			<div id="xbxs" style="display: none;">
+				<img src="images/xiaban.jpg" alt="" class="xb-tupian">
+			</div>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+
+</html>

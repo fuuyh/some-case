@@ -1,0 +1,88 @@
+/* 设置怪异盒模式 */
+* {
+  box-sizing: border-box;
+}
+/* 给body 添加初始样式 和 背景图片 */
+body {
+  background-image: url(images/bj.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+}
+/* 给背景添加一层覆盖图---添加滤镜 */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* 给所有元素设置 z-index */
+body * {
+  z-index: 1;
+}
+/* 给标题设置字号 */
+h1 {
+  font-size: 60px;
+  margin: -80px 0 40px;
+}
+/* 背景年份设置 */
+.year {
+  font-size: 200px;
+  z-index: -1;
+  opacity: 0.2;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* 给倒计时盒子设置默认 不显示 定义放大2倍数 */
+.countdown {
+  display: none;
+}
+.current-down {
+  display: flex;
+  transform: scale(2);
+}
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+.time h2 {
+  margin: 0 0 5px;
+}
+/* 媒体查询 最大宽度为500px */
+@media all and (max-width: 480px) {
+  h1 {
+    font-size: 45px;
+  }
+  .year {
+    font-size: 150px;
+  }
+  .time {
+    margin: 5px;
+  }
+
+  .time h2 {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .time small {
+    font-size: 10px;
+  }
+}

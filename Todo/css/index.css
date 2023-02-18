@@ -1,0 +1,235 @@
+.container {
+  padding: 30px 40px 20px;
+  text-align: center;
+  width: 440px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background: #f2f2f2;
+}
+/* 头部 图片和标题 */
+.container header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 图片区域 */
+.container header .img-wrapper {
+  width: 80px;
+  margin-right: 10px;
+}
+.container header .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 标题区域 */
+.container header .title {
+  transform: rotate(3deg);
+  font-size: 21px;
+  padding: 0.25em 0.8em 0.15em;
+  border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+  color: #fff;
+  background-color: #fe7345;
+  user-select: none;
+}
+/* 主体 输入框区域 和提交功能 */
+.container .form-field {
+  margin-top: 25px;
+}
+.title {
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+.container .form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+/* 输入框 */
+.container .form-wrapper .form-input {
+  display: inline-block;
+  flex-grow: .65;
+  margin-right: 15px;
+}
+.container .form-wrapper .form-input input {
+  width: 100%;
+  border-bottom: 3px dashed #fe7345;
+  padding: 5px 0 3px;
+  font-size: 18px;
+  background: transparent;
+}
+button, input {
+  outline: none;
+  border: none;
+}
+/* 提交按钮 */
+.container .form-wrapper .submit-sub {
+  cursor: pointer;
+  position: relative;
+  transform: rotate(4deg);
+  border-radius: 6px;
+  transition: transform .25s cubic-bezier(.175,.885,.32,1.275);
+}
+.container .form-wrapper .submit-sub::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scaleY(1.1);
+  border: 1px solid #494a4b;
+  border-radius: inherit;
+  transform-origin: top;
+  background-image: url("../images/img.png");
+  background-color: #fe7345;
+  transition: transform .25s cubic-bezier(.175,.885,.32,1.275);
+}
+.submit-btn:active {
+  transform: translateY(4px);
+  padding-bottom: 0
+}
+
+.submit-btn:active:before {
+  transform: scaleY(1)
+}
+.container .form-wrapper .submit-sub span {
+  position: relative;
+  display: block;
+  font-size: 16.5px;
+  padding: 0.34em 0.84em;
+  border: 2px solid #494a4b;
+  border-radius: inherit;
+  background-color: #fff;
+}
+
+/* 列表区域 */
+.container .todos {
+  margin-top: 40px;
+  perspective: 350px;
+}
+/* 默认 样式列表 */
+.todos li {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/* 选择框样式 */
+.todos li .checkbox-btn {
+  background: none;
+  padding: 0 8px;
+}
+.todos li .checkbox {
+  padding: 5px;
+  border-radius: 2px;
+  border: 2px solid #494a4b;
+}
+/* 列表内容区域 */
+.todos li p {
+  width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: 7px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+/* 选中后的文字样式 */
+.todos li .contentActive {
+  color: #fff;
+  text-decoration: line-through;
+}
+/* 删除区域 */
+.todos li .close-btn {
+  background: none;
+  margin: 0 -8px 0 auto;
+  padding: 0 8px;
+}
+.todos li .close {
+  transition: color .2s ease-out;
+}
+/* 选中 样式列表 */
+.todos li.completed {
+  background-color: #fe7345;
+  -webkit-animation: flipInX-132cabf7 .75s ease-in-out both;
+  animation: flipInX-132cabf7 .75s ease-in-out both;
+}
+.todos li.completed .check-btn {
+  padding: 0 8px;
+}
+/* 底部区域 */
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 100px;
+  gap: 20px;
+}
+.options .filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.options .filters span {
+  padding: 0 0.6em;
+  border-radius: 4px;
+  transition: all 60ms ease-out;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* 当前显示 */
+.options .filters span.active, .options .filters span:hover {
+  color: #fff;
+  background-color: #fe7345;
+}
+
+.empty-todos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+  -webkit-animation: zoom-132cabf7 .45s ease-in-out;
+  animation: zoom-132cabf7 .45s ease-in-out;
+}
+.empty-todos .msg {
+  font-size: 17px;
+  padding-top: 5px;
+  color: rgba(73,74,75,.45);
+}
+.empty-todos .icon[data-v-132cabf7] {
+  color: rgba(73,74,75,.35);
+}
+svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+
+/* 移动端 */
+@media only screen and (max-width:600px) {
+  .filters span {
+    flex-wrap: wrap
+  }
+  .container {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px
+  }
+  .options .filters span:last-child {
+    margin: 0 auto
+  }
+  body {
+    padding-left: 10px;
+    padding-right: 10px
+  }
+}
