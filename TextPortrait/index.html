@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <title>纯CSS实现文字组成肖像特效</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <p id="wrapper">
+    </p>
+    <img src="" alt="" id="test">
+    <div class="input__box">
+        <span></span>
+        <input type="text" value="妮可罗宾" id="name">
+        <input type="file" name="files" id="files" accept="image/png, image/jpeg" onchange="previewFile()">
+        <button id="btn">确定</button>
+    </div>
+    <script>
+        const wrapper = document.getElementById('wrapper');
+        const name = document.getElementById('name');
+        const btn = document.getElementById('btn');
+        let imgUrl
+
+        btn.addEventListener('click', () => {
+            // console.dir(file)
+            wrapper.innerText = name.value.repeat(1340)
+            wrapper.style.background = `url(${imgUrl})`
+            
+        })
+        // file.addEventListener('change', (e) => {
+        //     var file = this.files
+        //     console.log(file)
+        //     var reader = new FileReader()
+        //     reader.readAsDataURL(file[0])
+        //     reader.onload = function () {
+        //         return imgUrl = reader.result
+
+        //     }
+        // })
+
+        function previewFile() {
+            let file = document.getElementById('files');
+            var reader  = new FileReader();
+
+            reader.addEventListener("load", function () {
+                const test = document.getElementById('test')
+                test.src = reader.result;
+                // imgUrl = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+
+</html>

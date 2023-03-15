@@ -1,0 +1,69 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #000;
+  overflow: hidden;
+  font-size: 100px;
+}
+p{
+  width: 1200px;
+  /* height: 100vh; */
+  line-height: 1.0rem;
+  font-size: .8rem;
+  /* 居中 */
+  margin: 0 auto;
+  /* 背景图片 */
+  background: url('../images/img.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉 */
+  -webkit-background-clip: text;
+  /* 将文字透明镂空 */
+  -webkit-text-fill-color: transparent;
+  /* 灰度滤镜（转黑白） */
+  filter: grayscale(1);
+}
+.input__box {
+  position: fixed;
+  top: 0;
+  left: 40px;
+  background-color: rgba(235, 255, 255, .9);
+  width: 300px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.input__box span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #000;
+  width: 20px;
+  height: 10px;
+  background: url('../images/close.png') no-repeat center;
+  border-radius: 20px;
+}
+.input__box button {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  width: 60px;
+  background-color: rgba(233, 233, 234, .5);
+  /* border: none; */
+  border-radius: 10px;
+}
+.input__box input {
+  margin-right: 10px;
+}
+@media screen and (max-width: 700px) {
+  p {
+    background-size: auto;
+    line-height: .9rem;
+    font-size: .8rem;
+  }
+}
