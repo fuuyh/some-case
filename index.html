@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      margin-top: 20px;
+    }
+
+    .wrapper ul {
+      width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .wrapper li {
+      width: 200px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      height: 100px;
+      /* background-color: azure; */
+      /* background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%); */
+      border-radius: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateY(0);
+      animation: rotate-reverse 1.2s cubic-bezier(0.66, -0.47, 0.33, 1.5) forwards;
+    }
+
+    .wrapper li:hover {
+      transform: rotateY(180deg) translateZ(1px);
+      animation: rotate 1.2s cubic-bezier(0.66, -0.47, 0.33, 1.5) forwards;
+    }
+
+    .wrapper li:hover .content {
+      display: none;
+    }
+
+    .wrapper li:hover .tips {
+      display: block;
+      transform: rotateY(180deg) translateZ(1px);
+    }
+
+    .tips {
+      display: none;
+      padding: 10px;
+    }
+
+    /* .tips::after {
+            content: attr(data-tips);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            white-space: nowrap;
+            opacity: 0;
+            text-align: center;
+            transform: translateY(-150%);
+            transition: .3s;
+        }
+        .tips:hover::after {
+            opacity: 1;
+            transform: translateY(-100%);
+        } */
+
+    /* 下面我们定义一下翻转动画 */
+    @keyframes rotate {
+      0% {
+        transform: rotateY(0);
+      }
+
+      100% {
+        transform: rotateY(180deg);
+      }
+    }
+
+    @keyframes rotate-reverse {
+      0% {
+        transform: rotateY(180deg);
+      }
+
+      100% {
+        transform: rotateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrapper" id="caseBox">
+  </main>
+  <script>
+    // 获取元素
+    const caseBox = document.getElementById('caseBox');
+    // 设置初始数组内容
+    let caseConfig = [
+      { id: 1, aHref: './EatWhat/index.html', title: 'EatWhat', content: 'What to eat today, to solve the century problem of office workers', ZhContent: '今天吃什么，解决上班族世纪难题' },
+      { id: 2, aHref: './Todo/index.html', title: 'Todo-List', content: 'Manage everything you do', ZhContent: '管理你的每一个事项' },
+      { id: 3, aHref: './NewYearCountdown/index.html', title: 'NewYearCountdown', content: 'Come and prepare for the new year', ZhContent: '快来准备跨年吧' },
+      { id: 4, aHref: './Counter/index.html', title: 'Counter', content: 'Web calculator based on js', ZhContent: '基于js的便携计算器' },
+      { id: 5, aHref: './MusicPlayer/index.html', title: 'MusicPlayer', content: 'I can only say that this is a very beautiful music player', ZhContent: '这是一款非常优秀的随身听' },
+      { id: 6, aHref: './NoOvertime/index.html', title: 'NoOvertime', content: "You don't want to work overtime", ZhContent: '再也不怕下班早退了' },
+      { id: 7, aHref: './CanvasIndex/index.html', title: 'CanvasIndex', content: 'Made a sci-fi style website homepage using Canvas technology', ZhContent: '网站首页--科幻主题版本' },
+      { id: 8, aHref: './YiGeWangZhan/index.html', title: 'YiGeWangZhan', content: 'So this is a simple homepage layout', ZhContent: '网站首页--简约主题版本' },
+      { id: 9, aHref: './notFound/index.html', title: 'NotFound', content: 'One is ready to be used to do 404 animations', ZhContent: '一个准备用来做404的动画' },
+      { id: 10, aHref: './TextPortrait/index.html', title: 'TextPortrait', content: 'Upload an image and name to generate a portrait full of names', ZhContent: '上传图片和名字，生成一个写满名字的肖像画' },
+      { id: 11, aHref: './2048Game/index.html', title: '2048GAME', content: 'This is 2048Game', ZhContent: '2048小游戏' },
+      { id: 12, aHref: './DrawingBoard/index.html', title: 'DrawingBoard', content: 'PC side drawing board', ZhContent: 'pc端画画板' },
+      { id: 13, aHref: './MDrawingBoard/index.html', title: 'MDrawingBoard', content: 'Mobile terminal drawing board', ZhContent: '手机端画板' },
+    ];
+    // 添加节点
+    const caseItem = document.createElement('ul');
+    for (let i = 0; i < caseConfig.length; i++) {
+      let j = i
+      caseItem.innerHTML += `
+            <li style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);">
+                <a href="${caseConfig[j].aHref}" target="_blank">
+                    <span class="content">${caseConfig[j].title}</span>
+                    <span class="tips">${caseConfig[j].content}</span>
+                </a>
+            </li>
+            `
+    }
+    // 添加到html 
+    caseBox.appendChild(caseItem)
+  </script>
+</body>
+
+</html>

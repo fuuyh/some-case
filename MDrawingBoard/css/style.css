@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 10px;
+}
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+    font-family: 'iconfont';  /* Project id 3976106 */
+    src: url('//at.alicdn.com/t/c/font_3976106_1on06cehkd5.woff2?t=1679720439397') format('woff2'),
+         url('//at.alicdn.com/t/c/font_3976106_1on06cehkd5.woff?t=1679720439397') format('woff'),
+         url('//at.alicdn.com/t/c/font_3976106_1on06cehkd5.ttf?t=1679720439397') format('truetype');
+  }
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 底部 */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    text-align: center;
+}
+footer .tools__item {
+    width: 50%;
+    margin: 0 auto;
+    /* background-color: #ff0; */
+}
+@media screen and (max-width: 500px) {
+    footer .tools__item {
+        width: 75%;
+    }
+    footer .tools__item i {
+        font-size: 1.8rem;
+    }
+}
+footer .tools__item i {
+    font-size: 2.5rem;
+    line-height: 4rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+
+.wrapper {
+    z-index: 99;
+    width: 90%;
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-2em);
+    transform: translate(-50%,-2em);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    transition: -webkit-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+    transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
+}
+
+.wrapper.open {
+    -webkit-transform: translate(-50%,calc(-100% - 1em));
+    transform: translate(-50%,calc(-100% - 1em))
+}
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1em;
+    background-color: #a7a8b5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.tab:hover {
+    cursor: pointer
+}
+
+.tab.open svg {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.tab svg {
+    transition: -webkit-transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+    transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out;
+    fill: hsla(0,0%,100%,.5);
+    width: 2em
+}
+
+.controls {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 1em 1.5em;
+    background-color: #a7a8b5;
+    border-radius: 10px
+}
+.controls i {
+    margin: 0 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.controls i.active {
+    color: red;
+    transform: scale(1.2);
+}
+
+.colors {
+    position: fixed;
+    bottom: 5rem;
+    left: 50%;
+    margin: 0;
+    margin-left: -11rem;
+    display: flex;
+    /* border: 1px solid red; */
+    padding: 3px 5px;
+    opacity: 0;
+    border-radius: 5px;
+    border: 1px solid #a6a8b5;
+    transition: all 0.3s;
+}
+
+/* .colors::before {
+    content: "";
+    position: fixed;
+    top: 16px;
+    left: 38px;
+    border: 6px solid transparent;
+    border-right-color: #bbbaba;
+} */
+
+.colors>li {
+    width: 20px;
+    height: 20px;
+    /* border: 1px red solid; */
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.colors>li.active {
+    transform: scale(1.2);
+}
+
+.colors>li:last-child {
+    margin-right: 0;
+}
+
+.colors>.black {
+    background-color: black;
+}
+
+.colors>.red {
+    background-color: red;
+}
+
+.colors>.blue {
+    background-color: blue;
+}
+ol li {
+    list-style: none;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="mobile-top"></div>
+    <div class="container">
+        <div class="heading">
+            <h1 class="title"><a href="/">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">2048</font>
+                    </font>
+                </a></h1>
+            <div class="scores-container">
+                <div class="score-container">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">56</font>
+                    </font>
+                    <div class="score-addition">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">+8</font>
+                        </font>
+                    </div>
+                </div>
+                <div class="best-container">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">56</font>
+                    </font>
+                </div>
+            </div>
+        </div>
+        <div class="game-intro">
+            <a class="restart-button">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">新游戏</font>
+                </font>
+            </a>
+            <h2 class="subtitle">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">在线</font>
+                    <font style="vertical-align: inherit;">玩</font>
+                </font><strong>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">2048 游戏</font>
+                    </font>
+                </strong>
+                <font style="vertical-align: inherit;"></font>
+            </h2>
+            <div class="above-game">
+                <p>
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">加入数字并获得</font>
+                    </font><strong>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">2048 块！</font>
+                        </font>
+                    </strong>
+                </p>
+            </div>
+        </div>
+        <div class="game-container">
+            <div class="game-message">
+                <p></p>
+                <div class="lower">
+                    <a class="keep-playing-button">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">继续玩</font>
+                        </font>
+                    </a>
+                    <a class="retry-button">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">再试一次</font>
+                        </font>
+                    </a>
+                    <div class="score-sharing">
+                    </div>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+                <div class="grid-row">
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                    <div class="grid-cell"></div>
+                </div>
+            </div>
+            <div class="tile-container">
+                <div class="tile tile-4 tile-position-1-4">
+                    <div class="tile-inner">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">4</font>
+                        </font>
+                    </div>
+                </div>
+                <div class="tile tile-8 tile-position-1-4 tile-merged">
+                    <div class="tile-inner">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">8</font>
+                        </font>
+                    </div>
+                </div>
+                <div class="tile tile-16 tile-position-2-4">
+                    <div class="tile-inner">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">16</font>
+                        </font>
+                    </div>
+                </div>
+                <div class="tile tile-2 tile-position-3-1 tile-new">
+                    <div class="tile-inner">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">2</font>
+                        </font>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bind_polyfill.js" type="text/javascript"></script>
+    <script src="js/classlist_polyfill.js" type="text/javascript"></script>
+    <script src="js/animframe_polyfill.js" type="text/javascript"></script>
+    <script src="js/keyboard_input_manager.js" type="text/javascript"></script>
+    <script src="js/html_actuator_local.js" type="text/javascript"></script>
+    <script src="js/grid.js" type="text/javascript"></script>
+    <script src="js/tile.js" type="text/javascript"></script>
+    <script src="js/local_storage_manager.js" type="text/javascript"></script>
+    <script src="js/game_manager.js" type="text/javascript"></script>
+    <script src="js/application.js" type="text/javascript"></script>
+
+</body>
+
+</html>

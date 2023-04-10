@@ -15,7 +15,7 @@ p{
   /* 居中 */
   margin: 0 auto;
   /* 背景图片 */
-  background: url('../images/img.jpeg');
+  background-image: url('../images/img.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   /* 以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉 */
@@ -37,8 +37,9 @@ p{
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
+  transition: top 2s;
 }
-.input__box span {
+/* .input__box span {
   position: absolute;
   top: 0;
   right: 0;
@@ -47,7 +48,7 @@ p{
   height: 10px;
   background: url('../images/close.png') no-repeat center;
   border-radius: 20px;
-}
+} */
 .input__box button {
   position: absolute;
   bottom: 0;

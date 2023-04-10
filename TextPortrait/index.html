@@ -12,50 +12,42 @@
 <body>
     <p id="wrapper">
     </p>
-    <img src="" alt="" id="test">
-    <div class="input__box">
-        <span></span>
+    <div class="input__box" id="inputBbox">
         <input type="text" value="妮可罗宾" id="name">
-        <input type="file" name="files" id="files" accept="image/png, image/jpeg" onchange="previewFile()">
+        <input type="file" name="files" id="imgInput" accept="image/png, image/jpeg">
         <button id="btn">确定</button>
     </div>
     <script>
         const wrapper = document.getElementById('wrapper');
         const name = document.getElementById('name');
         const btn = document.getElementById('btn');
+        const imgInput = document.getElementById('imgInput');
+        const inputBox = document.getElementById('inputBbox');
         let imgUrl
 
         btn.addEventListener('click', () => {
             // console.dir(file)
-            wrapper.innerText = name.value.repeat(1340)
-            wrapper.style.background = `url(${imgUrl})`
-            
+            wrapper.innerText = name.value.repeat(1500)
+            // wrapper.style.background = `url(${imgUrl})`
+            // 点击确定后 三四秒 让这个盒子消失
+            setInterval(() => {
+                inputBox.style.top = '-200px'
+            }, 3000)
+
         })
-        // file.addEventListener('change', (e) => {
-        //     var file = this.files
-        //     console.log(file)
-        //     var reader = new FileReader()
-        //     reader.readAsDataURL(file[0])
-        //     reader.onload = function () {
-        //         return imgUrl = reader.result
 
-        //     }
-        // })
-
-        function previewFile() {
-            let file = document.getElementById('files');
-            var reader  = new FileReader();
-
-            reader.addEventListener("load", function () {
-                const test = document.getElementById('test')
-                test.src = reader.result;
-                // imgUrl = reader.result;
-            }, false);
-
-            if (file) {
-                reader.readAsDataURL(file);
+        imgInput.addEventListener('change', function () {
+            // 获取选择的文件
+            const selectedFile = imgInput.files[0];
+            // 使用 filereader 读取文件数据
+            const reader = new FileReader()
+            reader.readAsDataURL(selectedFile)
+            reader.onload = function () {
+                // 读取成功后设置成背景
+                wrapper.style.backgroundImage = `url('${reader.result}')`
             }
-        }
+        })
+        
     </script>
 </body>
 

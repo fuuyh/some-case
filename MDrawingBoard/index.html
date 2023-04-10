@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画画板</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="wrapper">
+        <div class="tab">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                    data-v-d7440cc4=""></path>
+            </svg>
+        </div>
+        <div class="controls">
+            <i class="iconfont" id="brush">&#xe61f;</i>
+            <i class="iconfont" id="eraser">&#xea15;</i>
+            <i class="iconfont" id="clear">&#xe946;</i>
+            <i class="iconfont" id="download">&#xec09;</i>
+            <i class="iconfont" id="addThin">&#xe66c;</i>
+        </div>
+    </div>
+    <ol class="colors">
+        <li class="black"></li>
+        <li class="red"></li>
+        <li class="blue"></li>
+    </ol>
+    <script>
+        const tab = document.querySelector('.tab');
+        const wrapper = document.querySelector('.wrapper');
+        // const colors.
+        let isTrue = false
+        tab.addEventListener('click', () => {
+            if (isTrue === false) {
+                tab.classList.add('open');
+                wrapper.classList.add('open');
+                // wrapper.className = 'wrapper open'
+                isTrue = true
+            } else {
+                // tab.className = 'tab'
+                // wrapper.className = 'wrapper'
+                tab.classList.remove('open');
+                wrapper.classList.remove('open');
+                colors.style.opacity = 0
+                isTrue = false
+            }
+        })
+    </script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

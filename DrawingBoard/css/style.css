@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url('../images/bj.jpg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+/* 顶部 控制按钮区域 */
+.menu {
+    background: rgba(195, 207, 227, .5);
+    backdrop-filter: blur(2px);
+    height: 24px;
+    color: #efedf3;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+}
+.menu .button {
+    margin: 0 6px;
+    cursor: pointer;
+}
+/* 中间区域，窗口  */
+.window {
+    width: 600px;
+    /* height: 450px; */
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 3px rgba(28,76,186,.02);
+    transition:all .8s ;
+}
+.window .top {
+    display: flex;
+    position: absolute;
+    margin: 10px 0 0 8px;
+}
+.window .top span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.window .top .red {
+    background-color: red;
+}
+.window .top .yellow {
+    background-color: yellow;
+}
+.window .top .green {
+    background-color: green;
+}
+.window canvas {
+    /* margin: 0 auto; */
+    border-radius: 10px;
+    background-color: #fff;
+}
+footer {
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    border-radius: 22px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40%;
+    background: rgba(195, 207, 227, .5);
+    backdrop-filter: blur(2px);
+}
+/*  */
+footer {
+    display: flex;
+}
+footer ul {
+    display: flex;
+}
+footer ul li {
+    margin: 0 10px;
+}
+/* footer div ul {
+    display: flex;
+    margin: 0 10px;
+}
+footer div ul li {
+    margin: 0 10px;
+} */
+ul li {
+    list-style: none;
+}

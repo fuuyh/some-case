@@ -1,18 +1,18 @@
 const source = `
 \`\`\`javascript
 const FuYuhao = {
-  introduction: "Hi, there 👋! I'm Fu-Yuhao. Currently student of UESTC. Frontend developer.",
-  blog: "https://yuho-99.github.io/",
-  github: "https://github.com/yuho-99/",
-  website: "https://www.noovertime.cc/",
+  introduction: "Hi, there 👋! I'm Fu Yuhao. I always love interesting life and magic front-end technology.",
+  blog: "https://fuuyh.github.io/blog/",
+  github: "https://github.com/fuuyh/",
+  website: "https://fuuyh.github.io",
   works: [
     {
-      name: "NoOvertime",
-      repo: "https://github.com/yuho-99/NoOvertime/",
+      name: "daily-exercise-items",
+      repo: "https://github.com/fuuyh/DailyExerciseItems/",
     },
     {
-      name: "Case",
-      repo: "https://github.com/yuho-99/some-cases",
+      name: "some-case",
+      repo: "https://github.com/fuuyh/some-cases",
     },
   ],
 };

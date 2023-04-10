@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrawingBoard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/jscolor.min.js"></script> -->
+</head>
+<body>
+    <div class="menu">
+        <div class="button">画板</div>
+        <div class="button">
+            颜色
+        </div>
+        <div class="button" id="clear">重置</div>
+        <div class="button" id="save">保存</div>
+    </div>
+    <div class="window" id="windowBox">
+        <div class="top" id="buttonBox">
+            <span class="red" id="close"></span>
+            <span class="yellow" id="minimize"></span>
+            <span class="green" id="maximize"></span>
+        </div>
+        <canvas id="canvas">
+            <p>亲，换个浏览器吧，求求了</p>
+        </canvas>
+    </div>
+    <footer>
+        <ul id="functionButton">
+            <li data-type="moren-line">默认</li>
+            <li data-type="straight-line">直线</li>
+            <li data-type="circular">圆</li>
+            <li data-type="oval">椭圆</li>
+            <li data-type="rectangle" id="rectangle">矩形</li>
+            <li data-type="arrowhead">箭头</li>
+            <li data-type="mobile">移动画像</li>
+            <li data-type="add-text">文字</li>
+            <li data-type="eraser">橡皮擦</li>
+            <li data-type="pencil">铅笔</li>
+            <li data-type="crayon">蜡笔</li>
+        </ul>
+    </footer>√
+    <script src="js/script.js"></script>
+</body>
+</html> ≈
