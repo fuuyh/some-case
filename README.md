@@ -14,3 +14,15 @@
 - 上班可以迟到，但下班必须准时
 ### Todo
 - Todo-list事项记录
+### 2048Game
+- 2048小游戏
+### GluttonousSnake
+- 贪吃蛇小游戏
+### DrawingBoard
+- 画画板
+### MDrawingBoard
+- 手机版画画板
+### NotFound
+- 404页面
+### Resume
+- 简历页面---未完成
