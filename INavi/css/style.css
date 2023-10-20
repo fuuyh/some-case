@@ -1,0 +1,254 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+ol,
+li {
+  list-style: none;
+}
+
+html {
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #b993d6, #8ca6db);
+}
+
+main .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin-top: -5rem;
+}
+
+main .content .verse {
+  font-size: .64285714rem;
+  background-color: #1b1c1d;
+  border-color: #1b1c1d;
+  color: #fff;
+  position: relative;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: baseline;
+  margin: 0 0.14285714em;
+  /* background-color: #e8e8e8; */
+  background-image: none;
+  padding: 0.5833em 0.833em;
+  /* color: rgba(0,0,0,.6); */
+  text-transform: none;
+  font-weight: 700;
+  border: 0 solid transparent;
+  border-radius: 0.28571429rem;
+  transition: background .1s ease;
+
+}
+
+main .content .verse svg {
+  fill: #fff;
+  width: 0.91rem;
+  height: 0.85rem;
+  display: inline-block;
+}
+
+main .content .verse span,
+main .content .verse div {
+  display: inline-block;
+
+}
+
+main .content .verse div {
+  vertical-align: top;
+  font-weight: 700;
+  margin-left: 1em;
+  opacity: .8;
+}
+
+main .content .verse::before {
+  border-width: 0 1px 1px 0;
+  right: auto;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 100%;
+  left: 50%;
+
+  position: absolute;
+  content: "";
+  background-image: none;
+  z-index: 2;
+  width: 0.6666em;
+  height: 0.6666em;
+  transition: none;
+  background-color: inherit;
+  border-style: solid;
+  border-color: inherit;
+}
+
+main .cover {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: normal;
+  color: #fff;
+  border: none;
+  padding: 0 0;
+  font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.28571429em;
+  text-transform: none;
+}
+
+main .cover img {
+  display: inline-block;
+  margin-top: 0.24285714em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+main .title {
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  font-size: 1.9em;
+  font-weight: normal;
+  color: #fff;
+
+  border: none;
+  margin: calc(2rem - 0.1428571428571429em) 0 1rem;
+  padding: 0 0;
+  font-family: Lato, system-ui, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.28571429em;
+  text-transform: none;
+}
+
+main .sousuo {
+  text-align: center;
+}
+
+main .sousuo li {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: baseline;
+
+  color: rgba(0, 0, 0, .6);
+  text-transform: none;
+  font-weight: 700;
+  border: 0 solid transparent;
+  border-radius: 0.28571429rem;
+  transition: background .1s ease;
+  background-color: rgba(0, 0, 0, .6);
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  font-size: .64285714rem;
+  width: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: all .5s;
+
+}
+
+main .sousuo li:hover::after {
+  content: attr(data-type);
+  min-width: 3rem;
+  height: 2rem;
+  position: absolute;
+  top: -2.5rem;
+  font-size: .7rem;
+  background: #1b1c1d;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  padding: 0.6rem;
+  transform: translate(-50%);
+  transition: all .5s;
+}
+
+main .sousuo li.active {
+  background-color: rgba(0, 0, 0, .8);
+  transform: scale(1.325);
+  transition: all .5s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+main .sousuo img {
+  padding: 0.5833em 0.833em;
+}
+
+main .input_box {
+  width: 100%;
+  /* margin-bottom: 1.5rem; */
+  margin: .5rem 0;
+}
+
+main .input_box div {
+  width: 14%;
+  height: 3rem;
+  line-height: 2rem;
+  float: right;
+  background: #4e6ef2;
+  padding: 0.5rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
+}
+
+main .input_box input {
+  width: 86%;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 1rem 0 0 1rem;
+  text-indent: 1em;
+  font-weight: bold;
+}
+
+main .input_box input:focus-visible {
+  outline: none;
+}
+
+main .tips {
+  color: rgba(255, 255, 255, .5);
+  padding: .5rem;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 7000;
+}
+
+main .tips:hover {
+  background: rgba(255, 255, 255, .02);
+  border-radius: 1rem;
+  color: #fff;
+}
+
+@media screen and (max-width:768px) {
+  main .input_box {
+    width: 120%;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  main .input_box {
+    width: 85%;
+  }
+}

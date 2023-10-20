@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INavi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+
+<body>
+  <main>
+    <div class="content">
+      <div class="verse">
+        <svg t="1697702417362" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          p-id="2937" width="200" height="200">
+          <path
+            d="M157.482667 268.458667C217.344 203.562667 307.925333 170.666667 426.666667 170.666667h42.666666v120.277333l-34.304 6.869333c-58.453333 11.690667-99.114667 34.688-120.874666 68.437334A123.818667 123.818667 0 0 0 295.466667 426.666667H426.666667a42.666667 42.666667 0 0 1 42.666666 42.666666v298.666667c0 47.061333-38.272 85.333333-85.333333 85.333333H128a42.666667 42.666667 0 0 1-42.666667-42.666666v-213.333334l0.128-124.544c-0.384-4.736-8.490667-116.949333 72.021334-204.330666zM853.333333 853.333333h-256a42.666667 42.666667 0 0 1-42.666666-42.666666v-213.333334l0.128-124.544c-0.384-4.736-8.490667-116.949333 72.021333-204.330666C686.677333 203.562667 777.258667 170.666667 896 170.666667h42.666667v120.277333l-34.304 6.869333c-58.453333 11.690667-99.114667 34.688-120.874667 68.437334A123.818667 123.818667 0 0 0 764.8 426.666667H896a42.666667 42.666667 0 0 1 42.666667 42.666666v298.666667c0 47.061333-38.272 85.333333-85.333334 85.333333z"
+            p-id="2938"></path>
+        </svg>
+        <span>最是人间留不住，朱颜辞镜花辞树。</span>
+        <div>蝶恋花·阅尽天涯离别苦</div>
+      </div>
+      <h1 class="cover">
+        <img src="https://jiaogepengyou.top/some-case/images/cover.jpg" alt="">
+      </h1>
+      <h2 class="title">私人定制导航 · I-Navi</h2>
+      <ul class="sousuo" id="searchBox">
+        <li class="search_item active" data-type="百度">
+          <img src="./images/baidu.svg" alt="baidu">
+        </li>
+        <li class="search_item" data-type="bing">
+          <img src="./images/bing.svg" alt="bing">
+        </li>
+        <li class="search_item" data-type="gitee">
+          <img src="./images/gitee.svg" alt="gitee">
+        </li>
+        <li class="search_item" data-type="360搜索">
+          <img src="./images/360.svg" alt="360">
+
+        </li>
+        <li class="search_item" data-type="github">
+          <img src="./images/github.svg" alt="github">
+        </li>
+        <li class="search_item" data-type="google">
+          <img src="./images/google.svg" alt="google">
+
+        </li>
+        <li class="search_item" data-type="iconfont">
+          <img src="./images/image.svg" alt="image">
+
+        </li>
+        <li class="search_item" data-type="开发者搜索">
+          <img src="./images/kaifa.svg" alt="kaifa">
+
+        </li>
+        <li class="search_item" data-type="搜狗">
+          <img src="./images/sougou.svg" alt="sougou">
+
+        </li>
+        <li class="search_item" data-type="微信文章">
+          <img src="./images/weixin.svg" alt="weixin">
+
+        </li>
+        <li class="search_item" data-type="知乎">
+          <img src="./images/zhihu.svg" alt="zhihu">
+
+        </li>
+        <li class="search_item" data-type="stackoverflow">
+          <img src="./images/stackoverflow.svg" alt="stackoverflow">
+
+        </li>
+        <li class="search_item" data-type="头条">
+          <img src="./images/toutiao.svg" alt="toutiao">
+        </li>
+        <li class="search_item" data-type="菜鸟教程">
+          <img src="./images/cn.png" alt="cainiao">
+        </li>
+        <li class="search_item" data-type="翻译">
+          <img src="./images/fanyi.svg" alt="fanyi">
+        </li>
+        <li class="search_item" data-type="goobe">
+          <img src="./images/goobe.svg" alt="goobe">
+        </li>
+      </ul>
+      <div class="input_box">
+        <input id="inputValue" type="text" placeholder="点击上方选择搜索引擎后开始" onkeydown="enterSearch(event)"
+          oninput="changeInput()">
+        <div onclick="goSearch()">GET</div>
+      </div>
+      <!-- <div>github</div> -->
+      <div class="tips">个别搜索引擎需要科学上网</div>
+    </div>
+  </main>
+
+  <script>
+    const searchItem = document.querySelectorAll('.search_item')
+    const searchBox = document.getElementById('searchBox')
+
+    let inputText = '', baseUrl = ''
+    // 获取input值
+    const changeInput = () => {
+      const inputValue = document.getElementById('inputValue').value
+      inputText = inputValue
+    }
+
+    searchItem.forEach(item => {
+
+      item.onclick = e => {
+
+        searchItem.forEach(li => {
+          li.classList.remove('active')
+        })
+        const type = e.target.alt
+        // 判断 type 给 baseUrl 赋值
+        item.classList.add('active')
+        switchType(type)
+      }
+      // 鼠标移动到每一个上面添加类名和提示信息
+
+    })
+
+    // 筛选 type
+    function switchType(type) {
+      let res = 'https://www.baidu.com/s?wd='
+      switch (type) {
+        case 'baidu':
+          res = 'https://www.baidu.com/s?wd='
+          break;
+        case 'bing':
+          res = 'https://bing.com/search?q='
+          break;
+        case 'gitee':
+          res = 'https://search.gitee.com/?q='
+          break;
+        case '360':
+          res = 'https://www.so.com/s?q='
+          break;
+        case 'github':
+          res = 'https://github.com/search?q='
+          break;
+        case 'google':
+          res = 'https://www.google.com/search?q='
+          break;
+        case 'image':
+          res = 'https://www.iconfont.cn/search/index?searchType=icon&q='
+          break;
+        case 'kaifa':
+          res = 'https://kaifa.baidu.com/searchPage?wd='
+          break;
+        case 'sougou':
+          res = 'https://www.sogou.com/web?query='
+          break;
+        case 'weixin':
+          res = 'https://weixin.sogou.com/weixin?query='
+          break;
+        // case 'weiji':
+        //   res = 'https://www.baidu.com/s?wd='
+        //   break;
+        case 'zhihu':
+          res = 'https://www.zhihu.com/search?q='
+          break;
+        case 'stackoverflow':
+          res = 'https://stackoverflow.com/search?q='
+          break;
+        case 'toutiao':
+          res = 'https://so.toutiao.com/search?keyword='
+          break;
+        case 'cainiao':
+          res = 'https://www.runoob.com/?s='
+          break;
+        case 'fanyi':
+          res = 'https://fanyi.sogou.com/text?ie=utf8&keyword='
+          break;
+        case 'goobe':
+          res = 'https://goobe.io/search.aspx?k='
+          break;
+        default:
+          res = 'https://www.baidu.com/s?wd='
+          return;
+      }
+      baseUrl = res
+
+    }
+
+
+    // 去搜索
+    function goSearch() {
+      searchFun()
+    }
+    // 回车搜索
+    function enterSearch(e) {
+      if (e.code === 'Enter') {
+        searchFun()
+      } else return
+    }
+
+    // 搜索方法实现
+    function searchFun() {
+      // 判断如果是空 弹出提示
+      if (inputText === '') {
+        alert('请输入内容')
+      } else {
+        let url = baseUrl ? baseUrl : 'https://www.baidu.com/s?wd='
+        window.open(url + inputText)
+      }
+    }
+  </script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
