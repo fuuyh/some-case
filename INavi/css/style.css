@@ -232,7 +232,7 @@ main .tips {
   width: 100%;
   text-align: center;
   cursor: pointer;
-  font-weight: 7000;
+  font-weight: 700;
 }
 
 main .tips:hover {
