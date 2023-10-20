@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I-Movies - 观影从未如此简单</title>
+  <meta name="keywords" content="每日解析,优酷VIP解析,爱奇艺VIP解析,腾讯VIP解析,乐视VIP解析,芒果VIP解析,全网视频解析,VIP在线解析,视频VIP在线解析,VIP视频在线解析">
+  <meta name="description"
+    content="每日解析,大云播全网VIP视频免费在线解析为广大网友提供优酷VIP解析，爱奇艺VIP解析，腾讯VIP解析，乐视VIP解析，芒果VIP解析等解析服务，让你省去购买视频VIP费用，欢迎大家收藏本站，并将它介绍给您的朋友！">
+  <link href="css/index2.css" rel="stylesheet" type="text/css" />
+  <!-- <script type="text/javascript">
+    eval(function (p, a, c, k, e, d) { e = function (c) { return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36)) }; if (!''.replace(/^/, String)) { while (c--) d[e(c)] = k[c] || e(c); k = [function (e) { return d[e] }]; e = function () { return '\\w+' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('b a(){0 6=1.2("9").4;0 5=1.2("3");0 3=1.2("3").c;0 8=5.e[3].4;0 7=1.2("f");7.d=8+6}', 16, 16, 'var|document|getElementById|jk|value|jkurl|diz|cljurl|jkv|url|dihejk|function|selectedIndex|src|options|player'.split('|'), 0, {}))</script> -->
+</head>
+
+<body style="background-color: #FFFFFF;">
+  <div class="container" style="padding-top:0px;">
+    <div class="col-md-14 column">
+      <div class="panel panel-default">
+        <div id="kj" class="panel-body">
+          <iframe id="playVideo" width="100%" height="624px" id="player" allowTransparency="true" frameborder="0" scrolling="no"
+            src="https://jx.xmflv.com/?url=https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html"></iframe>
+        </div>
+        <!-- <video class="art-video" preload="metadata" crossorigin="anonymous" autoplay="" playsinline="" src="https://jx.xmflv.com/?url=https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html"><track default="" kind="metadata" src=""></video>
+        <video style="width: 100vw; height: 100vh;">
+          <source src="https://jx.xmflv.com/?url=https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html">
+        </video> -->
+      </div>
+    </div>
+    <div class="col-md-14 column">
+      <form method="get">
+        <div class="col-md-3" style="margin-top: 8px;">
+          <div class="input-group" style="width: 100%;">
+            <select class="form-control input-lg" id="jk" title="点击这里可以更换接口">
+              <option value="https://jx.xmflv.com/?url=">VIP视频解析接口-通用</option>
+              <option value="https://beaacc.com/api.php?url=">VIP视频解析接口-A</option>
+              <option value="https://660e.com/?url=">VIP视频解析接口-B</option>
+              <option value="https://jx.99yyw.com/99/?url=">VIP视频解析接口-C</option>
+              <option value="https://www.kkflv.com/?url=">VIP视频解析接口-D</option>
+              <option value="https://ejiafarm.com/jx.php?url=">VIP视频解析接口-E</option>
+              <option value="https://000o.cc/jx/ty.php?url=">VIP视频解析接口-F</option>
+              <option value="https://yun.odflv.com/?url=">VIP视频解析接口-G</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-7" style="margin-top: 8px;">
+          <div class="input-group" style="width: 100%;">
+            <!-- https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html -->
+            <input id="url" class="form-control input-lg" type="search" placeholder="神族九帝，永不言弃" title="在此处粘贴复制好的视频地址">
+          </div>
+        </div>
+        <div>
+          <div class="col-md-2" style="margin-top: 8px;">
+            <div class="col-md-14 column"></div>
+            <button id="bf" type="button" class="btn btn-default btn-lg btn-block" onclick="dihejk()"
+              title="点击这里就可以播放了哟~">解析播放</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>
+  <script>
+    const playVideo = document.getElementById('playVideo');
+    const jk = document.getElementById('jk')
+    console.log('jk',jk.selectedOptions.value)
+    
+
+    const dihejk = () => {
+      playVideo.src = 'https://jx.xmflv.com/?url=https://v.qq.com/x/cover/mzc00200rslo568/m0047mhn8op.html?j_vid=a0044t7k2z4&j_cut_vid=j0047zhev2y&j_is_win_vid=1&j_start=0'
+    }
+  </script>
+</body>
+<script type="text/javascript">
+  window.onload = function () {
+    document.onkeydown = function () {
+      var e = window.event || arguments[0];
+      //屏蔽F12
+      if (e.keyCode == 123) {
+
+        return false;
+        //屏蔽Ctrl+Shift+I
+      } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+
+        return false;
+        //屏蔽Shift+F10
+      } else if ((e.shiftKey) && (e.keyCode == 121)) {
+
+        return false;
+      }
+    };
+    //屏蔽右键单击
+    document.oncontextmenu = function () {
+
+      return false;
+    }
+  }
+</script>
+
+</html>
