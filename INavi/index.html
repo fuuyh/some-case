@@ -90,14 +90,37 @@
           oninput="changeInput()">
         <div onclick="goSearch()">GET</div>
       </div>
-      <!-- <div>github</div> -->
-      <div class="tips">个别搜索引擎需要科学上网</div>
+      <div class="links">
+        <a href="https://jiaogepengyou.top/some-case/IMovies" target="_blank">
+          <img src="./images/movie.svg" alt="">
+          <span>I-Movies</span>
+        </a>
+        <a href="https://jiaogepengyou.top/navFavorites/" target="_blank">
+          <img src="./images/nav-favorites.svg" alt="">
+          <span>nav-favorites</span>
+        </a>
+        <a href="mailto:1849521093@qq.com" target="_blank">
+          <img src="./images/email.svg" alt="">
+          <span>EMail</span>
+        </a>
+        <a href="https://chat.openai.com/" target="_blank">
+          <img src="./images/gpt.svg" alt="">
+          <span>GPT</span>
+        </a>
+      </div>
+      <div class="tips">部分搜索引擎需要科学上网</div>
     </div>
   </main>
 
   <script>
     const searchItem = document.querySelectorAll('.search_item')
     const searchBox = document.getElementById('searchBox')
+    const mainBj = document.querySelector('main')
+    // 设置一个背景色数组，然后每次进入页面都换一个背景
+    let bjColorList = [
+      {id: 1, fromColor: '#322534', toColor: '#776969'},
+    ]
+    mainBj.style.background = `linear-gradient(to right, #11393b, #746850)`
 
     let inputText = '', baseUrl = ''
     // 获取input值

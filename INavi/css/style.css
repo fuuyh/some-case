@@ -141,7 +141,9 @@ main .sousuo {
   text-align: center;
 }
 
-main .sousuo li {
+main .sousuo li,
+main .links a
+{
   display: inline-block;
   line-height: 1;
   vertical-align: baseline;
@@ -241,6 +243,37 @@ main .tips:hover {
   color: #fff;
 }
 
+
+main .links {
+  text-align: center;
+  /* width: 100%; */
+  display: flex;
+}
+main .links a {
+  min-width: 5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: #515151;
+    color: #fff;
+    /* padding: .5rem;
+    padding-left: 0; */
+}
+main .links a:first-child {
+  min-width: 6rem;
+}
+main .links a:nth-child(2) {
+  min-width: 7rem;
+}
+main .links a img {
+  height: 100%;
+  padding: .3rem;
+}
+main .links a span {
+  padding: .3rem;
+}
 @media screen and (max-width:768px) {
   main .input_box {
     width: 120%;
@@ -252,3 +285,4 @@ main .tips:hover {
     width: 85%;
   }
 }
+
