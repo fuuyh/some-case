@@ -18,29 +18,70 @@
     html {
       font-size: 12px;
     }
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
     .container {
       width: 80%;
       margin: 0 auto;
     }
 
     .container .column {
-      display: flex;
+      /* display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: center; */
       width: 100%;
+      text-align: center;
+    }
+    .container .column .select_box {
+      display: flex;
+      width: 60%;
+      margin: 0 auto;
     }
     .container .column .left {
-      width: 60%;
+      width: 90%;
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
+    }
+    .container .column .left .form-control {
+      height: 4rem;
+      background: #232331;
+      color: #fff;
+      text-align: center;
+      border: none;
+      border-radius: 1rem 0 0 0;
+    }
+    input:focus,
+    select:focus {
+      outline: none;
+    }
+
+    .container .column .left input {
+      background: #232331;
+      color: #fff;
+      text-align: center;
+      border: none;
+      border-radius: 0 0 0 1rem;
+      height: 4rem;
     }
     .container .column .btn {
       width: 10%;
+      background: #232331;
+      color: #fff;
+      padding: 0;
+      border: none;
+    border-radius: 0 1rem 1rem 0;
+      
     }
 
     .video {
-      width: 100vw;
-      height: 100vh;
+      width: 80%;
+      height: 90vh;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -49,23 +90,25 @@
   <div class="container">
     <div class="column">
       <h1 style="color: #fff;">I-Movies  观影从未如此简单</h1>
-      <div class="left">
-        <select class="form-control" id="jk" title="点击这里可以更换接口">
-          <option value="https://yparse.ik9.cc/index.php?url=&url=">VIP视频解析接口-A</option>
-          <option value="https://jx.xmflv.com/?url=">VIP视频解析接口-通用</option>
-          <option value="http://jiexi41.qmbo.cn/jiexi/?url=">优酷腾讯专用通道</option>
-          <option value="https://jx.xyflv.cc/?url=">VIP视频解析接口-B</option>
-          <option value="https://jx.2s0.cn/player/?url=">VIP视频解析接口-C</option>
-          <option value="https://www.yemu.xyz/?url=">VIP视频解析接口-D</option>
-          <!-- <option value="https://www.daga.cc/vip3/?url=">名称专用接口-A</option> -->
-          <option value="http://api.apii.top/?v=">名称专用接口</option>
-        </select>
-        <!-- https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html -->
-        <input id="url" class="form-control" type="text" placeholder="I-Movies,免费观看影片" title="在此处粘贴复制好的视频地址"
-          onkeydown="enterSearch(event)" oninput="changeInput()">
+      <div class="select_box">
+        <div class="left">
+          <select class="form-control" id="jk" title="点击这里可以更换接口">
+            <option value="https://yparse.ik9.cc/index.php?url=&url=">VIP视频解析接口-A</option>
+            <option value="http://www.wpsseo.cn/jx/?url=">VIP视频解析接口-B</option>
+            <option value="https://jx.xyflv.cc/?url=">VIP视频解析接口-C</option>
+            <option value="https://jx.2s0.cn/player/?url=">VIP视频解析接口-D</option>
+            <option value="https://www.yemu.xyz/?url=">VIP视频解析接口-E</option>
+            <option value="https://jx.xmflv.com/?url=">VIP视频解析接口-通用</option>
+            <option value="http://jiexi41.qmbo.cn/jiexi/?url=">优酷腾讯专用通道</option>
+            <option value="http://api.apii.top/?v=">名称专用接口</option>
+          </select>
+          <!-- https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html -->
+          <input id="url" type="text" placeholder="I-Movies,免费观看影片" title="在此处粘贴复制好的视频地址"
+            onkeydown="enterSearch(event)" oninput="changeInput()">
+        </div>
+  
+        <button id="bf" type="button" class="btn" onclick="dihejk()" title="点击这里就可以播放了哟~">解析播放</button>
       </div>
-
-      <button id="bf" type="button" class="btn" onclick="dihejk()" title="点击这里就可以播放了哟~">解析播放</button>
     </div>
   </div>
   </div>
@@ -94,8 +137,8 @@
     function showIframe() {
       let optionValue = jk.options[jk.selectedIndex].value
       iframe.src = `${optionValue}${url}`
-      iframe.width = '100%'
-      iframe.height = '624px'
+      // iframe.width = '100%'
+      // iframe.height = '624px'
       iframe.frameBorder = '0'
       iframe.scrolling = 'no'
       iframe.className = 'video'

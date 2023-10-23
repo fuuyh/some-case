@@ -119,6 +119,7 @@
     // 设置一个背景色数组，然后每次进入页面都换一个背景
     let bjColorList = [
       {id: 1, fromColor: '#322534', toColor: '#776969'},
+      {id: 2, fromColor: '#11393b', toColor: '#746850'},
     ]
     mainBj.style.background = `linear-gradient(to right, #11393b, #746850)`
 
@@ -215,8 +216,10 @@
     }
     // 回车搜索
     function enterSearch(e) {
-      if (e.code === 'Enter') {
+      // console.log(e.keyCode)
+      if (e.keyCode === 13) {
         searchFun()
+        // 完成后把输入框清空
       } else return
     }
 
@@ -231,7 +234,6 @@
       }
     }
   </script>
-  <script src="./js/index.js"></script>
 </body>
 
 </html>
