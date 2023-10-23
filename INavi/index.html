@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INavi</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -120,8 +119,12 @@
     let bjColorList = [
       {id: 1, fromColor: '#322534', toColor: '#776969'},
       {id: 2, fromColor: '#11393b', toColor: '#746850'},
+      {id: 3, fromColor: '#133d56', toColor: '#677f7b'},
+      {id: 4, fromColor: '#1f204b', toColor: '#606d75'},
     ]
-    mainBj.style.background = `linear-gradient(to right, #11393b, #746850)`
+    // 记录一个随机数 0 -3
+    let randomNum = Math.floor(Math.random()*4)
+    mainBj.style.background = `linear-gradient(to right, ${bjColorList[randomNum].fromColor}, ${bjColorList[randomNum].toColor})`
 
     let inputText = '', baseUrl = ''
     // 获取input值
@@ -235,5 +238,4 @@
     }
   </script>
 </body>
-
 </html>
