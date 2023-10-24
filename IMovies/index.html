@@ -59,9 +59,9 @@
       overflow: hidden;
       transition: all .5s;
     }
-    @keyframes showOrHide {
-      
-    }
+
+    @keyframes showOrHide {}
+
     .container .column .left {
       width: 90%;
       display: flex;
@@ -76,8 +76,10 @@
       text-align: center;
       border: none;
       border-radius: 1rem 0 0 0;
-      -webkit-appearance: none; /* 去除默认样式 */
-      text-align-last: center; /* 内容居中对齐 */
+      -webkit-appearance: none;
+      /* 去除默认样式 */
+      text-align-last: center;
+      /* 内容居中对齐 */
     }
 
     input:focus,
@@ -123,14 +125,15 @@
       #openOrClose {
         right: -45%;
       }
+
       #selectBox {
         width: 100%;
       }
+
       .container .column .btn {
         width: 13%;
       }
     }
-  
   </style>
 </head>
 
@@ -154,14 +157,12 @@
             <option value="http://api.apii.top/?v=">名称专用接口</option> -->
           </select>
           <!-- https://v.qq.com/x/cover/0vjw392pdevdan3/r0311flxoox.html -->
-          <input id="url" type="text" placeholder="I-Movies,免费观看影片" title="在此处粘贴复制好的视频地址"
-            oninput="changeInput()">
+          <input id="url" type="text" placeholder="I-Movies,免费观看影片" title="在此处粘贴复制好的视频地址" oninput="changeInput()">
         </div>
 
         <button id="bf" type="button" class="btn" onclick="dihejk()" title="点击这里就可以播放了哟~">解析播放</button>
       </div>
     </div>
-  </div>
   </div>
   <script>
     const jk = document.getElementById('jk')
