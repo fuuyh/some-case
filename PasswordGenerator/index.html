@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password-Generator</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 10px;
+    }
+
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #070a24;
+    }
+
+    .container .logo {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+      color: #fff;
+      font-weight: 600;
+      font-size: 3rem;
+      padding: 1rem;
+    }
+
+    .container .center {
+      width: 40rem;
+      height: 60rem;
+      margin: 4rem 0;
+      padding: 1rem 2.5rem;
+      background-color: #0a0e31;
+      border-radius: 1rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .45), 0 4px 8px rgba(0, 0, 0, .35), 0 8px 12px rgba(0, 0, 0, .15);
+      font-family: Montserrat;
+    }
+
+    .container .center .title {
+      font-size: 2.5rem;
+      margin: 10px -5px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .container .center .result {
+      width: 100%;
+      height: 6.5rem;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 1rem;
+      color: #fff;
+      text-align: center;
+      line-height: 6.5rem;
+      margin-top: 3rem;
+      position: relative;
+      font-size: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container .center .result .result__info {
+      position: absolute;
+      bottom: -2.4rem;
+      color: #fff;
+      font-size: .8rem;
+      transition: all 150ms ease-in-out;
+      transform: translateY(200%);
+      opacity: 0;
+    }
+
+    .container .center .result .result__info.right {
+      right: .8rem;
+    }
+
+    .container .center .result .result__info.left {
+      left: .8rem;
+    }
+
+    .container .center .length {
+      position: relative;
+      width: 100%;
+      height: 5.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 1rem;
+      margin: 3rem 0;
+    }
+
+    .container .center .length::after {
+
+      content: '32';
+      position: absolute;
+      right: 2rem;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .container .center .length::before {
+      content: '4';
+      position: absolute;
+      left: 2rem;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .container .center .length .length_title {
+      position: absolute;
+      top: -10px;
+      left: 8px;
+      transform: translateY(-50%);
+      font-weight: 800;
+      color: rgba(255, 255, 255, .5);
+      text-transform: uppercase;
+      font-size: .65rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .container .center .length .length_title::after {
+      content: attr(data-length);
+      position: absolute;
+      right: -16px;
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+    }
+
+    .container .center .length input {
+      -webkit-appearance: none;
+      width: calc(100% - (9rem));
+      height: .2rem;
+      border-radius: .5rem;
+      background: rgba(255, 255, 255, .314);
+      outline: 0;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      margin-left: -0.6rem;
+    }
+
+    .settings {
+      position: relative;
+    }
+
+    .settings .settings_title {
+      position: absolute;
+      top: -10px;
+      left: 8px;
+      transform: translateY(-50%);
+      font-weight: 800;
+      color: rgba(255, 255, 255, .5);
+      text-transform: uppercase;
+      font-size: .65rem;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .settings .label_box li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      justify-content: space-between;
+      padding: 0 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .settings .label_box li div {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .generate {
+      user-select: none;
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 10px 0;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      background-image: linear-gradient(135deg, #667eea 0, #764ba2 100%);
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .rocker {
+      display: inline-block;
+      position: relative;
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: #888;
+      width: 7em;
+      height: 4em;
+      overflow: hidden;
+      border-bottom: 0.5em solid #eee;
+    }
+
+    .rocker-small {
+      font-size: 0.75em;
+      /* Sizes the switch */
+      margin: 1em;
+    }
+
+    .rocker::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #999;
+      border: 0.5em solid #eee;
+      border-bottom: 0;
+    }
+
+    .rocker input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .switch-left,
+    .switch-right {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5em;
+      width: 3em;
+      transition: 0.2s;
+      user-select: none;
+    }
+
+    .switch-left {
+      height: 2.4em;
+      width: 2.75em;
+      left: 0.85em;
+      bottom: 0.4em;
+      background-color: #ddd;
+      transform: rotate(15deg) skewX(15deg);
+    }
+
+    .switch-right {
+      right: 0.5em;
+      bottom: 0;
+      background-color: #bd5757;
+      color: #fff;
+    }
+
+    .switch-left::before,
+    .switch-right::before {
+      content: "";
+      position: absolute;
+      width: 0.4em;
+      height: 2.45em;
+      bottom: -0.45em;
+      background-color: #ccc;
+      transform: skewY(-65deg);
+    }
+
+    .switch-left::before {
+      left: -0.4em;
+    }
+
+    .switch-right::before {
+      right: -0.375em;
+      background-color: transparent;
+      transform: skewY(65deg);
+    }
+
+    input:checked+.switch-left {
+      background-color: #0084d0;
+      color: #fff;
+      bottom: 0px;
+      left: 0.5em;
+      height: 2.5em;
+      width: 3em;
+      transform: rotate(0deg) skewX(0deg);
+    }
+
+    input:checked+.switch-left::before {
+      background-color: transparent;
+      width: 3.0833em;
+    }
+
+    input:checked+.switch-left+.switch-right {
+      background-color: #ddd;
+      color: #888;
+      bottom: 0.4em;
+      right: 0.8em;
+      height: 2.4em;
+      width: 2.75em;
+      transform: rotate(-15deg) skewX(-15deg);
+    }
+
+    input:checked+.switch-left+.switch-right::before {
+      background-color: #ccc;
+    }
+
+    input:focus+.switch-left {
+      color: #333;
+    }
+
+    input:checked:focus+.switch-left {
+      color: #fff;
+    }
+
+    input:focus+.switch-left+.switch-right {
+      color: #fff;
+    }
+
+    input:checked:focus+.switch-left+.switch-right {
+      color: #333;
+    }
+
+    #copyBtn {
+      position: absolute;
+      width: 38px;
+      height: 38px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      transition: all 350ms cubic-bezier(.175, .885, .32, 1.275);
+      cursor: pointer;
+      z-index: 2;
+      border: none;
+      display: none;
+    }
+
+    .result:hover #copyBtn {
+
+      /* opacity: 1; */
+      transform: translate(-50%, -50%) scale(1.35);
+    }
+
+    .result #copyBtn:active {
+      box-shadow: 0 0 0 200px rgba(255, 255, 255, .08);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="logo">Password-Generator</h1>
+    <div class="center">
+      <h2 class="title">地狱难度密码</h2>
+      <div class="result" id="resultBox">
+        <div class="result__info right" id="resultRight">点击复制</div>
+        <div class="result__info left" id="resultLeft">已复制</div>
+        <div class="result__viewbox" id="passwordResult">单击"生成密码"</div>
+        <button id="copyBtn">
+          <svg t="1698968457060" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="1669" width="20" height="20">
+            <path
+              d="M363.066167 0h565.053683C980.534332 0 1022.721598 42.187266 1022.721598 94.601748v565.053683c0 52.414482-42.187266 94.601748-94.601748 94.601748H363.066167c-52.414482 0-94.601748-42.187266-94.601748-94.601748V94.601748c1.278402-52.414482 43.465668-94.601748 94.601748-94.601748z m0 80.539326c-7.670412 0-14.062422 6.39201-14.062422 14.062422v565.053683c0 7.670412 6.39201 14.062422 14.062422 14.062422h565.053683c7.670412 0 14.062422-6.39201 14.062422-14.062422V94.601748c0-7.670412-6.39201-14.062422-14.062422-14.062422H363.066167z m309.373284 754.257178c0-21.732834 17.897628-40.908864 40.908864-40.908864 21.732834 0 40.908864 17.897628 40.908864 40.908864v94.601748c0 52.414482-42.187266 94.601748-94.601748 94.601748H94.601748C42.187266 1022.721598 0 980.534332 0 928.11985V363.066167C0 310.651685 42.187266 268.464419 94.601748 268.464419h94.601748c21.732834 0 40.908864 17.897628 40.908864 40.908864 0 21.732834-17.897628 40.908864-40.908864 40.908864H94.601748c-7.670412 0-14.062422 6.39201-14.062422 14.062422v565.053683c0 7.670412 6.39201 14.062422 14.062422 14.062422h565.053683c7.670412 0 14.062422-6.39201 14.062422-14.062422v-94.601748z m0 0"
+              p-id="1670"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- 密码长度 -->
+      <div class="length">
+        <div class="length_title" data-length="16" id="lengthNum">长度</div>
+        <input type="range" min="4" max="32" value="16" id="passwordLength" onchange="passwordLengthChange()">
+      </div>
+      <!-- 设置内容 -->
+      <div class="settings">
+        <!-- 标题 -->
+        <span class="settings_title ">设置</span>
+
+        <ul class="label_box">
+          <li>
+            <div>包括大写</div>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="dxIsChecked">
+              <span class="switch-left">Yes</span>
+              <span class="switch-right">No</span>
+            </label>
+          </li>
+          <li>
+            <div>包括小写</div>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="xxIsChecked">
+              <span class="switch-left">Yes</span>
+              <span class="switch-right">No</span>
+            </label>
+          </li>
+          <li>
+            <div>包括数字</div>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="szIsChecked">
+              <span class="switch-left">Yes</span>
+              <span class="switch-right">No</span>
+            </label>
+          </li>
+          <li>
+            <div>包括符号</div>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="fhIsChecked">
+              <span class="switch-left">Yes</span>
+              <span class="switch-right">No</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <!-- 按钮 -->
+      <button class="generate" onclick="passwordGenerate()">生成密码</button>
+    </div>
+  </div>
+
+  <script>
+    const passwordLength = document.getElementById('passwordLength');
+    const lengthNum = document.getElementById('lengthNum');
+    const passwordResult = document.getElementById('passwordResult');
+    const dxIsChecked = document.getElementById('dxIsChecked');
+    const xxIsChecked = document.getElementById('xxIsChecked');
+    const szIsChecked = document.getElementById('szIsChecked');
+    const fhIsChecked = document.getElementById('fhIsChecked');
+    function passwordLengthChange() {
+      lengthNum.dataset.length = passwordLength.value;
+    }
+
+    function passwordGenerate() {
+      passwordResult.innerHTML = '正在生成中...';
+      const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+      const numberChars = "0123456789";
+      const symbolChars = "!@#$%^&*()_+.-=|[]{};:<>/?";
+      let passwordChars = "";
+      if (dxIsChecked.checked) {
+        passwordChars += uppercaseChars;
+      }
+      if (xxIsChecked.checked) {
+        passwordChars += lowercaseChars;
+      }
+      if (szIsChecked.checked) {
+        passwordChars += numberChars;
+      }
+      if (fhIsChecked.checked) {
+        passwordChars += symbolChars;
+      }
+      if (passwordChars.length === 0) {
+        passwordResult.innerHTML = '请至少选择一种字符类型';
+        return;
+      }
+      if (passwordLength.value < 4 || passwordLength.value > 32) {
+        passwordResult.innerHTML = '密码长度必须在4到32之间';
+        return;
+      }
+      let password = '';
+      for (let i = 0; i < passwordLength.value; i++) {
+        const randomIndex = Math.floor(Math.random() * passwordChars.length);
+        password += passwordChars[randomIndex];
+      }
+      passwordResult.innerText = password;
+      document.getElementById('resultRight').style.transform = 'translateY(0%)';
+      document.getElementById('resultRight').style.opacity = 0.75;
+      document.getElementById('resultLeft').style.transform = 'translateY(200%)';
+      document.getElementById('resultLeft').style.opacity = 0;
+
+      document.getElementById('copyBtn').style.display = 'block';
+
+      document.getElementById('copyBtn').style.opacity = 1;
+      document.getElementById('copyBtn').style.pointerEvents = 'all'
+    }
+    document.getElementById('copyBtn').onclick = function () {
+      document.getElementById('resultLeft').style.transform = 'translateY(0%)';
+      document.getElementById('resultLeft').style.opacity = 0.75;
+      document.getElementById('resultRight').style.transform = 'translateY(200%)';
+      document.getElementById('resultRight').style.opacity = 0;
+      navigator.clipboard.writeText(passwordResult.innerText)
+    }
+    const resultBoxRect = document.getElementById('resultBox').getBoundingClientRect();
+    document.getElementById('resultBox').onmousemove = function (e) {
+      const x = e.clientX - resultBoxRect.left;
+      const y = e.clientY - resultBoxRect.top;
+      const offsetX = Math.max(0, Math.min(x, resultBoxRect.width));
+      const offsetY = Math.max(0, Math.min(y, resultBoxRect.height));
+      document.getElementById('copyBtn').style.left = offsetX + 'px';
+      document.getElementById('copyBtn').style.top = offsetY + 'px';
+    }
+
+
+  </script>
+</body>
+
+</html>

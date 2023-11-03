@@ -34,6 +34,12 @@
         <li class="search_item" data-type="bing">
           <img src="./images/bing.svg" alt="bing">
         </li>
+        <li class="search_item" data-type="NPM">
+          <img src="./images/npm.svg" alt="npm">
+        </li>
+        <li class="search_item" data-type="github">
+          <img src="./images/github.svg" alt="github">
+        </li>
         <li class="search_item" data-type="gitee">
           <img src="./images/gitee.svg" alt="gitee">
         </li>
@@ -41,9 +47,7 @@
           <img src="./images/360.svg" alt="360">
 
         </li>
-        <li class="search_item" data-type="github">
-          <img src="./images/github.svg" alt="github">
-        </li>
+        
         <li class="search_item" data-type="google">
           <img src="./images/google.svg" alt="google">
 
@@ -83,6 +87,9 @@
         </li>
         <li class="search_item" data-type="goobe">
           <img src="./images/goobe.svg" alt="goobe">
+        </li>
+        <li class="search_item" data-type="天眼查">
+          <img src="./images/tianyancha.svg" alt="tianyancha">
         </li>
       </ul>
       <div class="input_box">
@@ -204,6 +211,12 @@
           break;
         case 'goobe':
           res = 'https://goobe.io/search.aspx?k='
+          break;
+        case 'tianyancha':
+          res = 'https://www.tianyancha.com/search?key='
+          break;
+        case 'npm':
+          res = 'https://www.npmjs.com/search?q='
           break;
         default:
           res = 'https://www.baidu.com/s?wd='
