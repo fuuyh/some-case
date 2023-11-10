@@ -47,7 +47,9 @@
           <img src="./images/360.svg" alt="360">
 
         </li>
-        
+        <li class="search_item" data-type="codePen">
+          <img src="./images/codepen.svg" alt="codepen">
+        </li>
         <li class="search_item" data-type="google">
           <img src="./images/google.svg" alt="google">
 
@@ -217,6 +219,9 @@
           break;
         case 'npm':
           res = 'https://www.npmjs.com/search?q='
+          break;
+        case 'codepen':
+          res = 'https://codepen.io/search/pens?q='
           break;
         default:
           res = 'https://www.baidu.com/s?wd='
