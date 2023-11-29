@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FilesExplorer</title>
+</head>
+<body>
+  <button>打开文件夹</button>
+  <script>
+    const btn = document.querySelector('button')
+    btn.onclick = async function () {
+      try {
+        // showDirectoryPicker打开资源管理器的api
+        // 获取文件夹的句柄
+        const handle = await showDirectoryPicker();
+        // console.log(handle)
+        const root = await processHandle(handle)
+        // 获取文件内容
+        const file = await root.children[2].getFile()
+        // const files = await root.getFiles();
+        console.log(file)
+        const reader = new FileReader()
+        reader.onload = e => {
+          console.log(e.target.result) // 文件内容
+        }
+        reader.readAsText(file,'utf-8')
+      } catch {
+        // 用户拒绝打开文件夹查看内容
+        console.log('用户拒绝打开文件夹查看内容')
+      }
+    }
+
+    // 处理
+    async function processHandle(handle) {
+      // 判断 如果不是文件夹 不需要递归处理
+      if (handle.kind === 'file') {
+        return handle
+      }
+      handle.children = [];
+      const iter = await handle.entries(); // 获取文件夹下所有内容，包括文件夹和文件
+      // iter 异步迭代器
+      for await (const info of iter) {
+        // console.log(info)
+        const subHandle = await processHandle(info[1])  // 递归处理文件夹
+        handle.children.push(subHandle)
+      }
+      return handle
+    }
+  </script>
+</body>
+</html>
