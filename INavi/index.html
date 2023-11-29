@@ -94,7 +94,7 @@
           <img src="./images/tianyancha.svg" alt="tianyancha">
         </li>
       </ul>
-      <div class="input_box">
+      <div class="input_box" id="inputBox">
         <input id="inputValue" type="text" placeholder="点击上方选择搜索引擎后开始" onkeydown="enterSearch(event)"
           oninput="changeInput()">
         <div onclick="goSearch()">GET</div>
@@ -125,6 +125,7 @@
     const searchItem = document.querySelectorAll('.search_item')
     const searchBox = document.getElementById('searchBox')
     const mainBj = document.querySelector('main')
+    const inputBox = document.getElementById('inputBox')
     // 设置一个背景色数组，然后每次进入页面都换一个背景
     let bjColorList = [
       {id: 1, fromColor: '#322534', toColor: '#776969'},
@@ -249,11 +250,21 @@
     function searchFun() {
       // 判断如果是空 弹出提示
       if (inputText === '') {
-        alert('请输入内容')
+        // alert('请输入内容')
+        inputBox.style.transform = 'scale(1.2)'
+        inputBox.style.transition = 'all 0.5s'
+        document.getElementById('inputValue').placeholder = '请输入内容后查询'
+        setTimeout(() => {
+          inputBox.style.transform = 'none'
+        }, 200)
+        // document.getElementById('inputValue').value = '请输入内容'
+        // document.getElementById('inputValue').style.color = 'red'
       } else {
         let url = baseUrl ? baseUrl : 'https://www.baidu.com/s?wd='
         window.open(url + inputText)
+        inputText = ''
         document.getElementById('inputValue').value = '' // 完成后把输入框清空
+        document.getElementById('inputValue').placeholder = '点击上方选择搜索引擎后开始'
       }
     }
   </script>
