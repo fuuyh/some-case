@@ -156,8 +156,6 @@
         item.classList.add('active')
         switchType(type)
       }
-      // 鼠标移动到每一个上面添加类名和提示信息
-
     })
 
     // 筛选 type
@@ -250,15 +248,11 @@
     function searchFun() {
       // 判断如果是空 弹出提示
       if (inputText === '') {
-        // alert('请输入内容')
-        inputBox.style.transform = 'scale(1.2)'
-        inputBox.style.transition = 'all 0.5s'
+        inputBox.classList.add('apply-shake')
         document.getElementById('inputValue').placeholder = '请输入内容后查询'
         setTimeout(() => {
-          inputBox.style.transform = 'none'
-        }, 200)
-        // document.getElementById('inputValue').value = '请输入内容'
-        // document.getElementById('inputValue').style.color = 'red'
+          inputBox.classList.remove('apply-shake')
+        }, 820)
       } else {
         let url = baseUrl ? baseUrl : 'https://www.baidu.com/s?wd='
         window.open(url + inputText)
