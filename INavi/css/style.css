@@ -37,13 +37,17 @@ main .content {
 }
 
 main .content .verse {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   font-size: .64285714rem;
-  background-color: #1b1c1d;
+  /* background-color: #1b1c1d; */
+  background-color: rgba(255,255,255,0.6666);
   border-color: #1b1c1d;
   color: #fff;
   position: relative;
   white-space: nowrap;
-  display: inline-block;
+  /* display: inline-block; */
   line-height: 1;
   vertical-align: baseline;
   margin: 0 0.14285714em;
@@ -60,7 +64,7 @@ main .content .verse {
 }
 
 main .content .verse svg {
-  fill: #fff;
+  fill: #1b1c1d;
   width: 0.91rem;
   height: 0.85rem;
   display: inline-block;
