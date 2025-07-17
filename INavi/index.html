@@ -32,6 +32,9 @@
         <li class="search_item active" data-type="百度">
           <img src="./images/baidu.svg" alt="baidu">
         </li>
+        <li class="search_item" data-type="百度AI">
+          <img src="./images/baiduAi.svg" alt="baiduAI">
+        </li>
         <li class="search_item" data-type="bing">
           <img src="./images/bing.svg" alt="bing">
         </li>
@@ -100,7 +103,7 @@
           oninput="changeInput()">
         <div onclick="goSearch()">GET</div>
       </div>
-      <div class="links">
+      <!-- <div class="links">
         <a href="https://fuuyh.github.io/some-case/IMovies" target="_blank">
           <img src="./images/movie.svg" alt="">
           <span>I-Movies</span>
@@ -118,7 +121,7 @@
           <span>GPT</span>
         </a>
       </div>
-      <div class="tips">部分搜索引擎需要科学上网</div>
+      <div class="tips">部分搜索引擎需要科学上网</div> -->
     </div>
   </main>
 
@@ -129,13 +132,13 @@
     const inputBox = document.getElementById('inputBox')
     // 设置一个背景色数组，然后每次进入页面都换一个背景
     let bjColorList = [
-      {id: 1, fromColor: '#322534', toColor: '#776969'},
-      {id: 2, fromColor: '#11393b', toColor: '#746850'},
-      {id: 3, fromColor: '#133d56', toColor: '#677f7b'},
-      {id: 4, fromColor: '#1f204b', toColor: '#606d75'},
+      { id: 1, fromColor: '#322534', toColor: '#776969' },
+      { id: 2, fromColor: '#11393b', toColor: '#746850' },
+      { id: 3, fromColor: '#133d56', toColor: '#677f7b' },
+      { id: 4, fromColor: '#1f204b', toColor: '#606d75' },
     ]
     // 记录一个随机数 0 -3
-    let randomNum = Math.floor(Math.random()*4)
+    let randomNum = Math.floor(Math.random() * 4)
     mainBj.style.background = `linear-gradient(to right, ${bjColorList[randomNum].fromColor}, ${bjColorList[randomNum].toColor})`
 
     let inputText = '', baseUrl = ''
@@ -165,6 +168,9 @@
       switch (type) {
         case 'baidu':
           res = 'https://www.baidu.com/s?wd='
+          break;
+        case 'baiduAI':
+          res = 'https://chat.baidu.com/search?word='
           break;
         case 'bing':
           res = 'https://bing.com/search?q='
