@@ -9,24 +9,15 @@ html {
 }
 
 body {
-  /* 1. 背景设置 */
+  height: 100vh;
   background-image: url('images/foods.svg');
   background-repeat: repeat;
-  
-  /* 2. 核心修复：强制缩小背景图尺寸 */
-  /* 这行代码会让背景图不管原图多大，都缩放到 150px 宽进行平铺 */
-  background-size: 30% 30%; 
-  
-  /* 3. 布局设置 */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* 4. 其他原有样式 */
   overflow: hidden;
   font-size: 1.4rem;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {

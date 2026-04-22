@@ -9,24 +9,17 @@ html {
 }
 
 body {
-  /* 1. 背景设置 */
+  height: 100vh;
   background-image: url('images/foods.svg');
   background-repeat: repeat;
-  
-  /* 2. 核心修复：强制缩小背景图尺寸 */
-  /* 这行代码会让背景图不管原图多大，都缩放到 150px 宽进行平铺 */
-  background-size: 30% 30%; 
-  
-  /* 3. 布局设置 */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* 4. 其他原有样式 */
+  /* 如果没有背景图，给个默认淡色背景 */
+  background-color: #fdfbf7;
   overflow: hidden;
   font-size: 1.4rem;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -38,10 +31,10 @@ button {
   text-align: center;
   z-index: 9;
   padding: 20px;
-  /* background: rgba(255, 255, 255, 0.85); */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
-  /* backdrop-filter: blur(5px); */
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
   max-width: 90%;
   width: 400px;
 }
@@ -147,94 +140,4 @@ p {
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-}
-
-.modal-header h2 {
-  font-size: 1.8rem;
-  color: #333;
-}
-
-.close-btn {
-  color: #aaa;
-  font-size: 2.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.close-btn:hover {
-  color: #000;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1.4rem;
-  resize: vertical;
-  min-height: 60px;
-}
-
-.form-group textarea:focus {
-  border-color: #ff4500;
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 69, 0, 0.3);
-}
-
-.btn-save {
-  width: 100%;
-  background-color: #ff4500;
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  font-size: 1.6rem;
-  border: none;
-}
-
-/* --- 手机端适配 --- */
-@media screen and (max-width: 600px) {
-  .container {
-    width: 85%;
-    top: 0; /* 手机端不需要top定位，flex居中即可 */
-    padding: 30px 20px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  .btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.4rem;
-  }
-  
-  .modal-content {
-    margin: 5% auto;
-    width: 95%;
-    padding: 15px;
-  }
-}
+  from { transform

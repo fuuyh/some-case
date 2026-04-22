@@ -9,24 +9,17 @@ html {
 }
 
 body {
-  /* 1. 背景设置 */
+  height: 100vh;
   background-image: url('images/foods.svg');
   background-repeat: repeat;
-  
-  /* 2. 核心修复：强制缩小背景图尺寸 */
-  /* 这行代码会让背景图不管原图多大，都缩放到 150px 宽进行平铺 */
-  background-size: 30% 30%; 
-  
-  /* 3. 布局设置 */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  /* 4. 其他原有样式 */
+  /* 如果没有背景图，给个默认淡色背景 */
+  background-color: #fdfbf7;
   overflow: hidden;
   font-size: 1.4rem;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -38,10 +31,10 @@ button {
   text-align: center;
   z-index: 9;
   padding: 20px;
-  /* background: rgba(255, 255, 255, 0.85); */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
-  /* backdrop-filter: blur(5px); */
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
   max-width: 90%;
   width: 400px;
 }

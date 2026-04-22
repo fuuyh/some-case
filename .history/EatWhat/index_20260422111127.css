@@ -1,0 +1,276 @@
+/* --- 全局重置 --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+/* --- 主体背景与布局 --- */
+body {
+  /* 关键修复：背景图设置 */
+  background-image: url('images/foods.svg');
+  background-repeat: repeat; /* 强制平铺 */
+  background-size: auto;     /* 禁止缩放，保持原图大小 */
+  background-position: 0 0;  /* 从左上角开始 */
+  background-attachment: scroll; /* 滚动时背景随之移动（可选） */
+
+  /* 布局设置：Flex 居中 */
+  min-height: 100vh; /* 使用 min-height 防止内容过多时被遮挡 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* 字体与基础样式 */
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 1.4rem;
+  color: #333;
+  overflow-x: hidden; /* 防止横向滚动条 */
+}
+
+/* --- 按钮基础样式 --- */
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+/* --- 主容器 --- */
+.container {
+  text-align: center;
+  z-index: 10; /* 确保内容在背景之上 */
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9); /* 轻微透明白底，增加可读性 */
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px); /* 毛玻璃效果 */
+  
+  width: 90%;
+  max-width: 420px; /* 限制最大宽度，适合手机和PC */
+}
+
+.logo {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.food {
+  color: #ff4500;
+  border-bottom: 2px solid #ff4500;
+  padding-bottom: 2px;
+}
+
+p {
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+}
+
+/* --- 按钮组 --- */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border-radius: 50px; /* 圆角按钮 */
+  font-size: 1.6rem;
+  padding: 1rem 2.5rem;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #ff4500;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #e03e00;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-setting {
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+}
+
+.btn-setting:hover {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+/* --- 飘浮的文字样式 (动画效果) --- */
+.temp {
+  position: absolute;
+  z-index: 1;
+  color: rgba(255, 69, 0, 0.2); /* 淡淡的橙色 */
+  font-weight: bold;
+  font-size: 2rem;
+  pointer-events: none; /* 防止遮挡点击 */
+  user-select: none;
+  animation: floatUp 0.8s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.2); }
+}
+
+/* --- 模态框 (设置菜单) --- */
+.modal {
+  display: none; /* 默认隐藏 */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(3px); /* 背景模糊 */
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: left;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.close-btn {
+  color: #aaa;
+  font-size: 2.4rem;
+  cursor: pointer;
+  line-height: 1;
+  background: none;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #ff4500;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+  font-size: 1.4rem;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 60px;
+  background-color: #fcfcfc;
+  transition: border-color 0.3s;
+}
+
+.form-group textarea:focus {
+  border-color: #ff4500;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.1);
+}
+
+.btn-save {
+  width: 100%;
+  background-color: #ff4500;
+  color: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #e03e00;
+}
+
+/* --- 手机端适配微调 --- */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 20px;
+    border-radius: 0; /* 手机端全屏贴边 */
+    height: 100vh; /* 全屏高度 */
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

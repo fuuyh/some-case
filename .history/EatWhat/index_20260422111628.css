@@ -15,7 +15,7 @@ body {
   
   /* 2. 核心修复：强制缩小背景图尺寸 */
   /* 这行代码会让背景图不管原图多大，都缩放到 150px 宽进行平铺 */
-  background-size: 30% 30%; 
+  background-size: 25% 25%; 
   
   /* 3. 布局设置 */
   min-height: 100vh;
